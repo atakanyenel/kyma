@@ -33,11 +33,11 @@ func TestGatewayServiceProvider(t *testing.T) {
 	// THEN
 	assert.Len(t, items, 2)
 	assert.Contains(t, items, gateway.ServiceData{
-		Host: "prod.ysf-integration.svc.cluster.local:80",
+		Host:                  "prod.ysf-integration.svc.cluster.local:80",
 		RemoteEnvironmentName: "ec-prod",
 	})
 	assert.Contains(t, items, gateway.ServiceData{
-		Host: "stage.ysf-integration.svc.cluster.local:80",
+		Host:                  "stage.ysf-integration.svc.cluster.local:80",
 		RemoteEnvironmentName: "ec-stage",
 	})
 }

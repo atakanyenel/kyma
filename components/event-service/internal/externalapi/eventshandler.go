@@ -9,8 +9,8 @@ import (
 	"github.com/kyma-project/kyma/components/event-service/internal/events/api"
 	"github.com/kyma-project/kyma/components/event-service/internal/events/bus"
 	"github.com/kyma-project/kyma/components/event-service/internal/events/shared"
-	log "github.com/sirupsen/logrus"
 	"github.com/kyma-project/kyma/components/event-service/internal/httpconsts"
+	log "github.com/sirupsen/logrus"
 )
 
 var (

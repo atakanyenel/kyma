@@ -1,10 +1,10 @@
 package proxy
 
 import (
+	"github.com/kyma-project/kyma/components/proxy-service/internal/authorization"
 	gocache "github.com/patrickmn/go-cache"
 	"net/http/httputil"
 	"time"
-	"github.com/kyma-project/kyma/components/proxy-service/internal/authorization"
 )
 
 const cleanupInterval = 60

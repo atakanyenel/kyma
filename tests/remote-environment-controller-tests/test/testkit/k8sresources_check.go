@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	ingressNameFormat        = "%s-remote-environment"
+	ingressNameFormat = "%s-remote-environment"
 
 	proxyServiceNameFormat        = "%s-proxy-service"
 	proxyServiceRoleFormat        = "%s-proxy-service-role"

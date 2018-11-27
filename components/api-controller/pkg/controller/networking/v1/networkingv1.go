@@ -168,9 +168,9 @@ func toVirtualService(dto *Dto, istioGateway string) *istioNetworkingApi.Virtual
 		Hosts:    []string{dto.Hostname},
 		Gateways: []string{istioGateway},
 		Http: []*istioNetworkingApi.HTTPRoute{
-			&istioNetworkingApi.HTTPRoute{
+			{
 				Match: []*istioNetworkingApi.HTTPMatchRequest{
-					&istioNetworkingApi.HTTPMatchRequest{
+					{
 						Uri: &istioNetworkingApi.StringMatch{
 							Regex: "/.*",
 						},

@@ -149,4 +149,3 @@ func convertCredentialsFromK8sType(credentials v1alpha1.Credentials) *Credential
 		Url:        credentials.AuthenticationUrl,
 	}
 }
-

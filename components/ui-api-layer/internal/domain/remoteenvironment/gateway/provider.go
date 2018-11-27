@@ -77,7 +77,7 @@ func (p *provider) ListGatewayServices() []ServiceData {
 				glog.Errorf("Could not find correct port in remote environment service %s", svc.Name)
 			}
 			result = append(result, ServiceData{
-				Host: h,
+				Host:                  h,
 				RemoteEnvironmentName: reName,
 			})
 		}

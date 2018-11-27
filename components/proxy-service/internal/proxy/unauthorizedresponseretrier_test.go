@@ -2,13 +2,13 @@ package proxy
 
 import (
 	"github.com/kyma-project/kyma/components/proxy-service/internal/apperrors"
+	"github.com/kyma-project/kyma/components/proxy-service/internal/authorization"
+	authMock "github.com/kyma-project/kyma/components/proxy-service/internal/authorization/mocks"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/require"
 	"net/http"
 	"testing"
-	authMock "github.com/kyma-project/kyma/components/proxy-service/internal/authorization/mocks"
-	"github.com/stretchr/testify/require"
-	"github.com/stretchr/testify/mock"
-	"github.com/kyma-project/kyma/components/proxy-service/internal/authorization"
 )
 
 func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
@@ -25,7 +25,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.NoError(t, err)
-		assert.Equal(t,http.StatusInternalServerError, response.StatusCode)
+		assert.Equal(t, http.StatusInternalServerError, response.StatusCode)
 	})
 
 	t.Run("should retry if 401 occurred", func(t *testing.T) {
@@ -53,7 +53,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.NoError(t, err)
-		assert.Equal(t,http.StatusOK, response.StatusCode)
+		assert.Equal(t, http.StatusOK, response.StatusCode)
 	})
 
 	t.Run("should retry if 403 occurred", func(t *testing.T) {
@@ -81,7 +81,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.NoError(t, err)
-		assert.Equal(t,http.StatusOK, response.StatusCode)
+		assert.Equal(t, http.StatusOK, response.StatusCode)
 	})
 
 	t.Run("should not retry if 401 occurred and flag is already set", func(t *testing.T) {
@@ -98,7 +98,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.NoError(t, err)
-		assert.Equal(t,http.StatusUnauthorized, response.StatusCode)
+		assert.Equal(t, http.StatusUnauthorized, response.StatusCode)
 	})
 
 	t.Run("should not retry if 403 occurred and flag is already set", func(t *testing.T) {
@@ -143,7 +143,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.NoError(t, err)
-		assert.Equal(t,http.StatusForbidden, response.StatusCode)
+		assert.Equal(t, http.StatusForbidden, response.StatusCode)
 	})
 
 	t.Run("should retry only once if 403 occurred", func(t *testing.T) {
@@ -171,7 +171,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.NoError(t, err)
-		assert.Equal(t,http.StatusUnauthorized, response.StatusCode)
+		assert.Equal(t, http.StatusUnauthorized, response.StatusCode)
 	})
 
 	t.Run("should return error if failed to update entry cache", func(t *testing.T) {
@@ -191,7 +191,7 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.Error(t, err)
-		assert.Equal(t,http.StatusUnauthorized, response.StatusCode)
+		assert.Equal(t, http.StatusUnauthorized, response.StatusCode)
 	})
 
 	t.Run("should return error if failed to add authorization header", func(t *testing.T) {
@@ -213,11 +213,11 @@ func TestForbiddenResponseRetrier_CheckResponse(t *testing.T) {
 
 		// then
 		assert.Error(t, err)
-		assert.Equal(t,http.StatusUnauthorized, response.StatusCode)
+		assert.Equal(t, http.StatusUnauthorized, response.StatusCode)
 	})
 }
 
-func newUpdateCacheEntryFunction(t *testing.T, url string, strategy authorization.Strategy) func(id string) (*CacheEntry, apperrors.AppError){
+func newUpdateCacheEntryFunction(t *testing.T, url string, strategy authorization.Strategy) func(id string) (*CacheEntry, apperrors.AppError) {
 	return func(id string) (*CacheEntry, apperrors.AppError) {
 		assert.Equal(t, "id1", id)
 
@@ -225,9 +225,8 @@ func newUpdateCacheEntryFunction(t *testing.T, url string, strategy authorizatio
 		require.NoError(t, err)
 
 		return &CacheEntry{
-			Proxy: proxy,
+			Proxy:                 proxy,
 			AuthorizationStrategy: strategy,
 		}, nil
 	}
 }
-
