@@ -105,7 +105,7 @@ func awaitForChanAtMost(t *testing.T, ch <-chan struct{}, timeout time.Duration)
 	select {
 	case <-ch:
 	case <-time.After(timeout):
-		t.Fatalf("timeout occured when waiting for channel")
+		t.Fatalf("timeout occurred when waiting for channel")
 	}
 }
 

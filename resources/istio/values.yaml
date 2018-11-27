@@ -102,7 +102,7 @@ global:
 
   # ImagePullSecrets for all ServiceAccount, list of secrets in the same namespace
   # to use for pulling any images in pods that reference this ServiceAccount.
-  # Must be set for any clustser configured with privte docker registry.
+  # Must be set for any clustser configured with private docker registry.
   imagePullSecrets:
     # - private-registry-key
 
@@ -457,7 +457,7 @@ servicegraph:
       # - secretName: servicegraph-tls
       #   hosts:
       #     - servicegraph.local
-  # prometheus addres
+  # prometheus address
   prometheusAddr: http://prometheus:9090
 
 tracing:
@@ -528,10 +528,10 @@ kiali:
     # changed by overriding the secret
     passphrase: admin
 
-    # Override the automatically detected Grafana URL, usefull when Grafana service has no ExternalIPs
+    # Override the automatically detected Grafana URL, useful when Grafana service has no ExternalIPs
     # grafanaURL:
 
-    # Override the automatically detected Jaeger URL, usefull when Jaeger service has no ExternalIPs
+    # Override the automatically detected Jaeger URL, useful when Jaeger service has no ExternalIPs
     # jaegerURL:
 
 # Certmanager uses ACME to sign certificates. Since Istio gateways are

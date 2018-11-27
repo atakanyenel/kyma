@@ -17,7 +17,7 @@ type BindingLabelsFetcher struct {
 	scLister  scListers.ServiceClassLister
 }
 
-// NewBindingLabelsFetcher returnd BindingLabelsFetcher
+// NewBindingLabelsFetcher returned BindingLabelsFetcher
 func NewBindingLabelsFetcher(siLister scListers.ServiceInstanceLister,
 	cscLister scListers.ClusterServiceClassLister, scLister scListers.ServiceClassLister) *BindingLabelsFetcher {
 	return &BindingLabelsFetcher{

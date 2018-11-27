@@ -179,7 +179,7 @@ func waitUntilExists(maxReps, waitTime int, existsFunc func() (bool, error), typ
 		exists, err := existsFunc()
 
 		if err != nil {
-			log.Println("--> An error occured while checking if "+typeName+" exists: ", err)
+			log.Println("--> An error occurred while checking if "+typeName+" exists: ", err)
 		} else {
 			if !exists {
 				log.Printf("----> No more %s(s) exist!\n", typeName)

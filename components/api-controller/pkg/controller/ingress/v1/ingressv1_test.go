@@ -17,7 +17,7 @@ func TestCreateIngress(t *testing.T) {
 	_, err := ingressCtrl.Create(dto)
 
 	if err != nil {
-		t.Errorf("Error creating Ingress. Detials : %s", err.Error())
+		t.Errorf("Error creating Ingress. Details : %s", err.Error())
 	}
 }
 
@@ -45,7 +45,7 @@ func TestGetIngress(t *testing.T) {
 	_, err := ingressCtrl.Get(dto)
 
 	if err != nil {
-		t.Errorf("Error to get Ingress. Detials : %s", err.Error())
+		t.Errorf("Error to get Ingress. Details : %s", err.Error())
 	}
 }
 
@@ -69,7 +69,7 @@ func TestUpdateIngress(t *testing.T) {
 		if err != nil {
 			t.Errorf("Error while updating Ingress. Details : %s", err.Error())
 		} else if updatedResource == nil {
-			t.Errorf("Error while updating Ingress. Ingress be udpated (old name: '%s', new name: '%s')", oldApi.ServiceName, newApi.ServiceName)
+			t.Errorf("Error while updating Ingress. Ingress be updated (old name: '%s', new name: '%s')", oldApi.ServiceName, newApi.ServiceName)
 		} else if updatedResource.Name != newApi.ServiceName+"-ing" {
 			t.Errorf("Error while updating Ingress. Ingress should have name : %s, but is: %s", newApi.ServiceName+"-ing", updatedResource.Name)
 		}
@@ -117,7 +117,7 @@ func TestDeleteIngress(t *testing.T) {
 	err := ingressCtrl.Delete(dto)
 
 	if err != nil {
-		t.Errorf("Error deleting Ingress. Detials : %s", err.Error())
+		t.Errorf("Error deleting Ingress. Details : %s", err.Error())
 	}
 }
 

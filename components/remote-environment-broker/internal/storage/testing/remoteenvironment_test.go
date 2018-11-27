@@ -226,12 +226,12 @@ func (ts *reTestSuite) MustGetFixture(name string) *internal.RemoteEnvironment {
 func (ts *reTestSuite) MustCopyFixture(in *internal.RemoteEnvironment) *internal.RemoteEnvironment {
 	m, err := json.Marshal(in)
 	if err != nil {
-		panic(fmt.Sprintf("input remote environemnt marchaling failed, err: %s", err))
+		panic(fmt.Sprintf("input remote environment marchaling failed, err: %s", err))
 	}
 
 	var out internal.RemoteEnvironment
 	if err := json.Unmarshal(m, &out); err != nil {
-		panic(fmt.Sprintf("input remote environemnt unmarchaling failed, err: %s", err))
+		panic(fmt.Sprintf("input remote environment unmarchaling failed, err: %s", err))
 	}
 
 	return &out

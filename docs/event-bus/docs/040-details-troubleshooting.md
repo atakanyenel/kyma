@@ -57,7 +57,7 @@ In the trace details, you can see the tags for the `publish-service`.
 
 ### Scenario: Configured microservice or lambda returns an error
 
-This scenario assumes that there is a microservice or lambda configured to recieve
+This scenario assumes that there is a microservice or lambda configured to receive
 the event trigger. However, due to a bug in the code, the microservice or lambda 
 failed to process the Event.
 

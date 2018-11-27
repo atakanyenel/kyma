@@ -165,7 +165,7 @@
         }
       ],
       "thresholds": "1,1",
-      "title": "Number of sucessful backups in past 24h",
+      "title": "Number of successful backups in past 24h",
       "type": "singlestat",
       "valueFontSize": "200%",
       "valueMaps": [

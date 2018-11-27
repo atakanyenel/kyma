@@ -20,7 +20,7 @@ func TestYAMLRender_Render(t *testing.T) {
 	}
 
 	// YAML imposes order on serialisation which in our implementation uses asc ordering by key as string.
-	// It allows us to do simple text comparision on result even with maps.
+	// It allows us to do simple text comparison on result even with maps.
 	exp := `apiVersion: v1
 entries:
   A:

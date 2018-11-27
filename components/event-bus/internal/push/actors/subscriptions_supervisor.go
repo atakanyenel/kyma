@@ -124,7 +124,7 @@ func (s *SubscriptionsSupervisor) IsNATSConnected() bool {
 // ReconnectToNATSStreaming ....
 func (s *SubscriptionsSupervisor) ReconnectToNATSStreaming() {
 	s.actionChan <- func() {
-		log.Println("ReconnectToNATSStreaming() :: try to reconnet to NATS Streaming")
+		log.Println("ReconnectToNATSStreaming() :: try to reconnect to NATS Streaming")
 		stanutil.Close(s.stanConn)
 		stanutil.Connect(s.opts.NatsStreamingClusterID, s.opts.ClientID, s.opts.NatsURL)
 	}

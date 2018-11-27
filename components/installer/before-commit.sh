@@ -93,7 +93,7 @@ done
 # INFO.JSON
 ##
 author=$(git show -s --pretty=%an)
-# the branch calcualtion looks as follow, because the git checkout process works differently on jenkins and our local machine
+# the branch calculations looks as follow, because the git checkout process works differently on jenkins and our local machine
 branch=${GIT_BRANCH}
 if [$branch == ""]; then
 	branch=$(git rev-parse --abbrev-ref HEAD)

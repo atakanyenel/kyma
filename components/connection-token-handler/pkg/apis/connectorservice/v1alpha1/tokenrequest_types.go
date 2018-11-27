@@ -10,7 +10,7 @@ type TokenRequestState string
 const (
 	// TokenRequestStateOK is used when successfully fetched token
 	TokenRequestStateOK TokenRequestState = "OK"
-	// TokenRequestStateERR is used when an error occured during token fetch
+	// TokenRequestStateERR is used when an error occurred during token fetch
 	TokenRequestStateERR TokenRequestState = "Error"
 )
 
@@ -45,7 +45,7 @@ func (tr *TokenRequest) ShouldExpire() bool {
 	return tr.Status.ExpireAfter.Before(&currentTime)
 }
 
-// ShouldFetch method retuns true if tokenrequest requires fethcing new token
+// ShouldFetch method returns true if tokenrequest requires fethcing new token
 func (tr *TokenRequest) ShouldFetch() bool {
 	return tr.Status.Token == ""
 }

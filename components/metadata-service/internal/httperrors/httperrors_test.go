@@ -10,7 +10,7 @@ import (
 func TestHttpErrors_AppErrorToResponse(t *testing.T) {
 	t.Run("should print short internal error", func(t *testing.T) {
 		//given
-		err := apperrors.Internal("some internal error occured")
+		err := apperrors.Internal("some internal error occurred")
 
 		//when
 		status, body := AppErrorToResponse(err, false)

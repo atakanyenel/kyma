@@ -112,7 +112,7 @@ func (s *fakeTillerSvc) TearDown(t *testing.T) {
 	select {
 	case <-s.serverClosed:
 	case <-time.After(time.Second):
-		t.Errorf("Timeout [%v] occured when wainting to server shudown. ", time.Second)
+		t.Errorf("Timeout [%v] occurred when wainting to server shudown. ", time.Second)
 	}
 }
 

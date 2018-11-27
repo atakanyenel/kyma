@@ -96,7 +96,7 @@ func TestUpdateVirtualService(t *testing.T) {
 		if err != nil {
 			t.Errorf("Error while updating VirtualService. Details : %s", err.Error())
 		} else if updatedResource == nil {
-			t.Errorf("Error while updating VirtualService. VirtualService be udpated (old name: '%s', new name: '%s')", oldApi.ServiceName, newApi.ServiceName)
+			t.Errorf("Error while updating VirtualService. VirtualService be updated (old name: '%s', new name: '%s')", oldApi.ServiceName, newApi.ServiceName)
 		}
 	})
 
@@ -159,7 +159,7 @@ func TestUpdateVirtualService(t *testing.T) {
 			_, err := virtualServiceCtrl.Update(oldApi, &newApi)
 
 			if err == nil {
-				t.Errorf("Error did not occured while updating VirtualService, but should because hostname is already used by other virtualservice.")
+				t.Errorf("Error did not occurred while updating VirtualService, but should because hostname is already used by other virtualservice.")
 			}
 		})
 
@@ -179,7 +179,7 @@ func TestUpdateVirtualService(t *testing.T) {
 			updatedResource, err := virtualServiceCtrl.Update(oldApi, &newApi)
 
 			if err == nil {
-				t.Errorf("Error did not occured while updating VirtualService, but should because hostname is already used by other virtualservice.")
+				t.Errorf("Error did not occurred while updating VirtualService, but should because hostname is already used by other virtualservice.")
 			}
 			t.Logf("%s", err)
 			if updatedResource == nil {
@@ -221,7 +221,7 @@ func TestUpdateVirtualService(t *testing.T) {
 			updatedResource, err := virtualServiceCtrl.Update(&oldWrongApi, newApi)
 
 			if err == nil {
-				t.Errorf("Error did not occured while updating VirtualService, but should because hostname is used by other virtualservice.")
+				t.Errorf("Error did not occurred while updating VirtualService, but should because hostname is used by other virtualservice.")
 			}
 			if updatedResource != nil {
 				t.Error("Error while updating VirtualService. Should not create a virtualservice.")
